@@ -5,7 +5,7 @@
 Mapa comunitario interactivo para la región española de Galicia,
 para prevención y sistema de alertas de incendios. 🔥
 
-[Aca puedes ver de que se trata](https://youtu.be/w4MSDz5dlY)
+[Aca puedes ver de que se trata](https://youtu.be/znm2wt6heX4)
 
 ## ¿Por qué? 🤔
 
@@ -93,7 +93,7 @@ docker compose up
 5. Abre tu navegador en `http://localhost:8501`
 
 ## Colaboradores
-Este proyecto es mantenido y creado por Trinity Warriors, compuesto por:
+Este proyecto es mantenido y creado por Trinity's Knights, compuesto por:
 - [Manuel Arteaga](https://github.com/lxkishoxl)
 - [Juan Pablo León](https://github.com/justjuanl)
 - [Carlos Mora](https://github.com/cyphusx12)
