@@ -1,0 +1,23 @@
+services:
+  dashboard:
+    build: ./backend
+    container_name: galicia-fire-risk-dashboard
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    environment:
+      - PYTHONUNBUFFERED=1
+      - HDF5_USE_FILE_LOCKING=FALSE
+      - CDSAPI_URL=https://cds.climate.copernicus.eu/api
+      - CDSAPI_KEY=${CDSAPI_KEY}
+    entrypoint: ["/bin/bash", "/app/entrypoint.sh"]  # Use mounted entrypoint
+    command: streamlit run app.py --server.port=8501 --server.address=0.0.0.0
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G

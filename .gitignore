@@ -1,0 +1,32 @@
+# Data files
+backend/data/*.nc
+backend/data/*.zip
+
+# Credentials
+backend/.cdsapirc
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# credentials
+secrets.*
+.cdsapirc
+
+# Venvs and all other hidden files
+*.
+
+!.gitignore

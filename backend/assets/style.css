@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Main app background - UPDATED TO #16181d */
+.stApp {
+    background-color: #16181d !important;
+}
+
+.main {
+    background-color: #16181d !important;
+}
+
+/* Main content area */
+.main .block-container {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background-color: #16181d !important;
+}
+
+/* Center all h3 titles and make them white */
+h3 {
+    text-align: center !important;
+    color: #ecf0f1 !important;
+    font-weight: 600 !important;
+    font-size: larger !important;
+}
+
+/* Dark sidebar styling */
+[data-testid="stSidebar"] {
+    background-color: #1a1a1a;
+}
+
+[data-testid="stSidebar"] > div:first-child {
+    background-color: #1a1a1a;
+}
+
+[data-testid="stSidebar"] .element-container {
+    color: #fafafa;
+}
+
+[data-testid="stSidebar"] label {
+    color: #fafafa !important;
+}
+
+[data-testid="stSidebar"] .stSelectbox label,
+[data-testid="stSidebar"] .stRadio label {
+    color: #fafafa !important;
+}
+
+[data-testid="stSidebar"] .stMarkdown {
+    color: #fafafa;
+}
+
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3 {
+    color: #fafafa !important;
+}
+
+/* Month buttons in sidebar */
+[data-testid="stSidebar"] .stButton > button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+[data-testid="stSidebar"] .stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Radio buttons styling */
+[data-testid="stSidebar"] .stRadio > div {
+    background-color: #262730;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+/* Select box styling */
+[data-testid="stSidebar"] .stSelectbox > div > div {
+    background-color: #262730;
+    color: #fafafa;
+}
+
+/* Success/info messages in sidebar */
+[data-testid="stSidebar"] .stAlert {
+    background-color: #262730;
+}
+
+/* Main content buttons */
+.stButton>button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.stButton>button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Metrics styling for dark mode */
+.stMetric {
+    background-color: #262730;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    margin-bottom: 0.75rem;
+}
+
+.stMetric label {
+    color: #fafafa !important;
+    font-weight: 600 !important;
+    font-size: 1.8rem !important;
+}
+
+.stMetric [data-testid="stMetricValue"] {
+    color: #fafafa !important;
+    font-weight: 600 !important;
+}
+
+/* Expander styling */
+.streamlit-expanderHeader {
+    background-color: #262730;
+    border-radius: 8px;
+    color: #fafafa !important;
+}
+
+.streamlit-expanderContent {
+    background-color: #1a1c23;
+}
+
+/* Code blocks */
+code {
+    background-color: #1a1a1a;
+    color: #fafafa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+}
+
+/* Plotly chart background */
+.js-plotly-plot {
+    background-color: #262730 !important;
+}
+
+/* Markdown headings in main content */
+.main h1, .main h2 {
+    color: #ecf0f1;
+}
+
+/* Info/warning/error boxes */
+.stAlert {
+    border-radius: 8px;
+}
+
+/* Success alert styling */
+.stSuccess {
+    background-color: rgba(46, 204, 113, 0.1);
+    border-left: 4px solid #2ecc71;
+}
+
+/* Ensure matplotlib colorbars have transparent background */
+.stImage img {
+    background-color: transparent !important;
+}
+
+/* Fix any remaining white backgrounds */
+.element-container {
+    background-color: transparent !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #16181d;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #34495e;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #667eea;
+}
