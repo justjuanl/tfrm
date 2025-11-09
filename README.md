@@ -23,7 +23,7 @@ Toda persona con un dispositivo con conexion a internet puede ser capaz de conec
 
 Sin ejecutar scripts, sin instalación, sin descargas 🙂‍↔️🙂‍↔️🙂‍↔️
 
-Los datos son nuestros aliados en la prevención y lucha contra el cambio climático, si los entendemos podemos tomar acción!
+Los datos son nuestros aliados en la prevención y lucha contra el cambio climático, si los entendemos podemos tomar acción!💪🏻
 
 Este dashboard ya es accesible por medio de la plataforma de [render.com](https://render.com/).
 
