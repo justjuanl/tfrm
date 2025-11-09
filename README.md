@@ -5,6 +5,8 @@
 Mapa comunitario interactivo para la región española de Galicia,
 para prevención y sistema de alertas de incendios. 🔥
 
+[Aca puedes ver de que se trata](https://youtu.be/w4MSDz5dlY)
+
 ## ¿Por qué? 🤔
 
 Como parte de nuestra solución al Reto 4 del Hackaton CoAfina 2025 "Educando a las comunidades con ciencia del cambio climático" hemos desarrollado una app de libre acceso al alcance de la población civil para monitoreo de diversas variables y métricas climáticas, así como un sistema de alerta temprana para posibles escenarios de incendios forestales.
