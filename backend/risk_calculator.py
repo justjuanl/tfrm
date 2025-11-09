@@ -45,7 +45,8 @@ def calculate_global_threshold(dataset, date_key='time'):
     
     global_mean = float(np.mean(all_risk_array))
     global_std = float(np.std(all_risk_array))
-    global_threshold = global_mean + global_std
+    # global_threshold = global_mean + global_std
+    global_threshold = float(np.percentile(all_risk_array, 84))
     
     threshold_info = {
         'mean': global_mean,
@@ -77,6 +78,7 @@ def calculate_risk_index(data):
     v10 = data['v10']  # Wind V component
     d2m = data['d2m']  # Dewpoint temperature
     swvl1 = data['swvl1']  # Soil moisture layer 1
+
     
     # Calculate derived variables
     ws = dp.calculate_wind_speed(u10, v10)
@@ -85,23 +87,37 @@ def calculate_risk_index(data):
     # Convert temperature to Celsius
     temp_c = t2m - 273.15
     
+    # # Normalize variables using min-max normalization [0, 1]
+    # # Temperature: 0-40°C range
+    # t_norm = np.clip((temp_c - 0) / (40 - 0), 0, 1)
+    
+    # # Wind speed: 0-15 m/s range
+    # ws_norm = np.clip(ws / 15, 0, 1)
+    
+    # # Relative humidity: 0-100% (invert because LOW humidity = HIGH risk)
+    # rh_norm = np.clip(1 - (rh / 100), 0, 1)
+
+    # #humedad del suelo, Invertimos porque menor humedad = mayor riesgo:
+    # # Normalizar humedad del suelo entre 0 y 1
+    # swvl1_norm = np.clip(1 - (swvl1 / swvl1.max()), 0, 1)
+
+    #cambios realizados
     # Normalize variables using min-max normalization [0, 1]
-    # Temperature: 0-40°C range
-    t_norm = np.clip((temp_c - 0) / (40 - 0), 0, 1)
-    
-    # Wind speed: 0-15 m/s range
-    ws_norm = np.clip(ws / 15, 0, 1)
-    
-    # Relative humidity: 0-100% (invert because LOW humidity = HIGH risk)
-    rh_norm = np.clip(1 - (rh / 100), 0, 1)
+    t_norm = np.clip((temp_c - 0) / (40 - 0), 0, 1)  # <--- CAMBIO: peso alto según PCA
+    ws_norm = np.clip(ws / 15, 0, 1)                 # <--- CAMBIO: peso menor según PCA
+    rh_norm = np.clip(1 - (rh / 100), 0, 1)         # <--- CORRECTO: invertido para riesgo
+    swvl1_norm = np.clip(1 - (swvl1 / swvl1.max()), 0, 1)  # <--- NUEVO: añadir según PCA
     
     # Calculate weighted risk index
-    # Weights: Temperature (34%), Wind (33%), Humidity (33%)
+    # Aquí reemplazas tu anterior 0.34/0.33/0.33 con los pesos ajustados.
+    # Weights: Temperature (40%), Wind (15%), Humidity (35%), humedad suelo (10%)
     risk = (
-        0.34 * t_norm +
-        0.33 * ws_norm +
-        0.33 * rh_norm
+        0.4 * t_norm +      # <--- CAMBIO: mayor peso a temperatura
+        0.35 * rh_norm +    # <--- CAMBIO: humedad relativa
+        0.15 * ws_norm +    # <--- CAMBIO: viento
+        0.1 * swvl1_norm    # <--- CAMBIO: humedad suelo
     )
+
     
     # Extract solar radiation if available
     solar_rad = None
@@ -156,6 +172,17 @@ def calculate_alerts(risk_data, global_threshold_info=None):
         risk_threshold = avg_risk + std_risk
         global_mean = avg_risk
         global_std = std_risk
+
+    if global_threshold_info is not None:
+        # <--- CAMBIO SUGERIDO: usar percentil 84-95 en vez de mean+std si deseas ser más conservador
+        risk_threshold = global_threshold_info['threshold']
+        global_mean = global_threshold_info['mean']
+        global_std = global_threshold_info['std']
+    else:
+        risk_threshold = avg_risk + std_risk  # <--- OPCIONAL CAMBIO: podrías usar np.percentile(risk, 84)
+        global_mean = avg_risk
+        global_std = std_risk
+
     
     # Count points exceeding threshold
     high_risk_count = int(np.sum(risk > risk_threshold))
@@ -231,6 +258,7 @@ def identify_high_risk_regions(risk_data, alerts, data_slice=None):
     
     # Find high-risk points
     high_risk_mask = risk.values >= threshold
+    high_risk_mask = risk.values >= threshold 
     
     # Add land mask filter (land > 0.5)
     if land_mask is not None:

@@ -728,9 +728,9 @@ st.markdown("---")
 st.markdown("### Actualizar Datos")
 
 st.markdown("""
-<div style="background-color: #fff3cd; padding: 15px; border-radius: 8px; 
-            border-left: 4px solid #ffc107; margin-bottom: 15px;">
-    <div style="color: #856404; font-size: 0.95rem;">
+<div style="background-color: rgba(243, 156, 18, 0.15); padding: 15px; border-radius: 8px; 
+            border-left: 4px solid #f39c12; margin-bottom: 15px;">
+    <div style="color: #f39c12; font-size: 0.95rem;">
         <p style="margin: 0;">
             <b>⚠️ Advertencia:</b><br>
             La actualización de datos puede tardar entre <b>10-20 minutos</b> dependiendo de:

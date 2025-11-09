@@ -3,7 +3,7 @@ FROM python:3.11
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies
+
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \

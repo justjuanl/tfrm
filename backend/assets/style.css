@@ -2,9 +2,10 @@
 
 * {
     font-family: 'Inter', sans-serif;
+    color: #ecf0f1 !important;
 }
 
-/* Main app background - UPDATED TO #16181d */
+/* Main app background */
 .stApp {
     background-color: #16181d !important;
 }
@@ -20,12 +21,41 @@
     background-color: #16181d !important;
 }
 
+/* All text elements - force light color */
+p, span, div, label, li, td, th {
+    color: #ecf0f1 !important;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    color: #ecf0f1 !important;
+}
+
 /* Center all h3 titles and make them white */
 h3 {
     text-align: center !important;
     color: #ecf0f1 !important;
     font-weight: 600 !important;
     font-size: larger !important;
+}
+
+/* Markdown text */
+.stMarkdown, .stMarkdown p, .stMarkdown span {
+    color: #ecf0f1 !important;
+}
+
+/* Markdown lists */
+.stMarkdown ul, .stMarkdown ol, .stMarkdown li {
+    color: #ecf0f1 !important;
+}
+
+/* Links */
+a {
+    color: #3498db !important;
+}
+
+a:hover {
+    color: #5dade2 !important;
 }
 
 /* Dark sidebar styling */
@@ -38,7 +68,7 @@ h3 {
 }
 
 [data-testid="stSidebar"] .element-container {
-    color: #fafafa;
+    color: #fafafa !important;
 }
 
 [data-testid="stSidebar"] label {
@@ -51,7 +81,11 @@ h3 {
 }
 
 [data-testid="stSidebar"] .stMarkdown {
-    color: #fafafa;
+    color: #fafafa !important;
+}
+
+[data-testid="stSidebar"] .stMarkdown p {
+    color: #fafafa !important;
 }
 
 [data-testid="stSidebar"] h2,
@@ -62,7 +96,7 @@ h3 {
 /* Month buttons in sidebar */
 [data-testid="stSidebar"] .stButton > button {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    color: white !important;
     border: none;
     border-radius: 8px;
     padding: 0.75rem 1rem;
@@ -88,7 +122,11 @@ h3 {
 /* Select box styling */
 [data-testid="stSidebar"] .stSelectbox > div > div {
     background-color: #262730;
-    color: #fafafa;
+    color: #fafafa !important;
+}
+
+[data-testid="stSidebar"] .stSelectbox input {
+    color: #fafafa !important;
 }
 
 /* Success/info messages in sidebar */
@@ -96,10 +134,14 @@ h3 {
     background-color: #262730;
 }
 
+[data-testid="stSidebar"] .stAlert p {
+    color: #fafafa !important;
+}
+
 /* Main content buttons */
 .stButton>button {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    color: white !important;
     border: none;
     border-radius: 8px;
     padding: 0.5rem 2rem;
@@ -110,6 +152,10 @@ h3 {
 .stButton>button:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.stButton>button * {
+    color: white !important;
 }
 
 /* Metrics styling for dark mode */
@@ -132,6 +178,10 @@ h3 {
     font-weight: 600 !important;
 }
 
+.stMetric [data-testid="stMetricDelta"] {
+    color: #fafafa !important;
+}
+
 /* Expander styling */
 .streamlit-expanderHeader {
     background-color: #262730;
@@ -139,16 +189,35 @@ h3 {
     color: #fafafa !important;
 }
 
+.streamlit-expanderHeader p {
+    color: #fafafa !important;
+}
+
 .streamlit-expanderContent {
     background-color: #1a1c23;
+}
+
+.streamlit-expanderContent p,
+.streamlit-expanderContent span,
+.streamlit-expanderContent div {
+    color: #ecf0f1 !important;
 }
 
 /* Code blocks */
 code {
     background-color: #1a1a1a;
-    color: #fafafa;
+    color: #fafafa !important;
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
+}
+
+pre {
+    background-color: #1a1a1a;
+    color: #fafafa !important;
+}
+
+pre code {
+    color: #fafafa !important;
 }
 
 /* Plotly chart background */
@@ -156,20 +225,146 @@ code {
     background-color: #262730 !important;
 }
 
-/* Markdown headings in main content */
-.main h1, .main h2 {
-    color: #ecf0f1;
-}
-
 /* Info/warning/error boxes */
 .stAlert {
     border-radius: 8px;
 }
 
+.stAlert p, .stAlert span, .stAlert div {
+    color: inherit !important;
+}
+
 /* Success alert styling */
 .stSuccess {
-    background-color: rgba(46, 204, 113, 0.1);
+    background-color: rgba(46, 204, 113, 0.2);
     border-left: 4px solid #2ecc71;
+}
+
+.stSuccess p {
+    color: #27ae60 !important;
+}
+
+/* Info alert */
+.stInfo {
+    background-color: rgba(52, 152, 219, 0.2);
+    border-left: 4px solid #3498db;
+}
+
+.stInfo p {
+    color: #5dade2 !important;
+}
+
+/* Warning alert */
+.stWarning {
+    background-color: rgba(243, 156, 18, 0.2);
+    border-left: 4px solid #f39c12;
+}
+
+.stWarning p {
+    color: #f39c12 !important;
+}
+
+/* Error alert */
+.stError {
+    background-color: rgba(231, 76, 60, 0.2);
+    border-left: 4px solid #e74c3c;
+}
+
+.stError p {
+    color: #e74c3c !important;
+}
+
+/* Tables */
+table {
+    background-color: #1a1c23 !important;
+    color: #ecf0f1 !important;
+}
+
+th {
+    background-color: #262730 !important;
+    color: #fafafa !important;
+    font-weight: 600 !important;
+}
+
+td {
+    background-color: #1e2128 !important;
+    color: #ecf0f1 !important;
+}
+
+/* Input fields */
+input, textarea, select {
+    background-color: #1e2128 !important;
+    color: #ecf0f1 !important;
+    border: 1px solid #34495e !important;
+}
+
+input::placeholder {
+    color: #7f8c8d !important;
+}
+
+/* Slider text */
+.stSlider label {
+    color: #ecf0f1 !important;
+}
+
+.stSlider [data-testid="stTickBarMin"],
+.stSlider [data-testid="stTickBarMax"] {
+    color: #ecf0f1 !important;
+}
+
+/* Checkbox */
+.stCheckbox label {
+    color: #ecf0f1 !important;
+}
+
+.stCheckbox span {
+    color: #ecf0f1 !important;
+}
+
+/* Radio buttons */
+.stRadio label {
+    color: #ecf0f1 !important;
+}
+
+.stRadio span {
+    color: #ecf0f1 !important;
+}
+
+/* Selectbox */
+.stSelectbox label {
+    color: #ecf0f1 !important;
+}
+
+.stSelectbox div {
+    color: #ecf0f1 !important;
+}
+
+/* Dataframe */
+.dataframe {
+    color: #ecf0f1 !important;
+}
+
+.dataframe th {
+    background-color: #262730 !important;
+    color: #fafafa !important;
+}
+
+.dataframe td {
+    background-color: #1e2128 !important;
+    color: #ecf0f1 !important;
+}
+
+/* Tabs */
+.stTabs [data-baseweb="tab-list"] {
+    background-color: #1a1c23;
+}
+
+.stTabs [data-baseweb="tab"] {
+    color: #ecf0f1 !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    color: #3498db !important;
 }
 
 /* Ensure matplotlib colorbars have transparent background */
@@ -195,4 +390,38 @@ code {
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: #667eea;
+}
+
+/* File uploader */
+.stFileUploader label {
+    color: #ecf0f1 !important;
+}
+
+.stFileUploader div {
+    color: #ecf0f1 !important;
+}
+
+/* Download button */
+.stDownloadButton button {
+    color: white !important;
+}
+
+/* Caption text */
+.caption {
+    color: #95a5a6 !important;
+}
+
+/* Tooltip */
+.stTooltipIcon {
+    color: #ecf0f1 !important;
+}
+
+/* Progress bar text */
+.stProgress > div > div {
+    color: #ecf0f1 !important;
+}
+
+/* Spinner text */
+.stSpinner > div {
+    color: #ecf0f1 !important;
 }
